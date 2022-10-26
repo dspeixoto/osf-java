@@ -6,8 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.security.core.GrantedAuthority;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,10 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="OSF.STORES")
-public class Store implements GrantedAuthority{
-	
-	private static final long serialVersionUID = 1L;
-	
+public class Store {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;	
@@ -38,11 +34,6 @@ public class Store implements GrantedAuthority{
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
-	}
-
-	@Override
-	public String getAuthority() {
-		return name;
 	}
 	
 }

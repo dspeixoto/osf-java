@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+
 import com.product.apirest.model.Order;
 import com.product.apirest.model.Store;
 
@@ -37,6 +39,10 @@ public class OrderDto {
 	
 	public static List<OrderDto> converter(List<Order> orders){
 		return orders.stream().map(OrderDto::new).collect(Collectors.toList());
+	}
+	
+	public static Page<OrderDto> converterPage(Page<Order> orders){
+		return orders.map(OrderDto::new);
 	}
 	
 

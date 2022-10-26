@@ -3,6 +3,8 @@ package com.product.apirest.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+
 import com.product.apirest.model.Customer;
 
 import lombok.Getter;
@@ -39,5 +41,8 @@ public class CustomerDto {
 		return customers.stream().map(CustomerDto::new).collect(Collectors.toList());
 	}
 	
+	public static Page<CustomerDto> converterPage(Page<Customer> customers){
+		return customers.map(CustomerDto::new);
+	}
 
 }
